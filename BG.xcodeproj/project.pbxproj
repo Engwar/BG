@@ -54,9 +54,9 @@
 		942FDAC4219A068300E779B7 /* BG */ = {
 			isa = PBXGroup;
 			children = (
-				942FDAC5219A068300E779B7 /* AppDelegate.swift */,
 				942FDAC7219A068300E779B7 /* ViewController.swift */,
 				942FDAC9219A068300E779B7 /* Main.storyboard */,
+				942FDAC5219A068300E779B7 /* AppDelegate.swift */,
 				942FDACC219A068400E779B7 /* Assets.xcassets */,
 				942FDACE219A068400E779B7 /* LaunchScreen.storyboard */,
 				942FDAD1219A068400E779B7 /* Info.plist */,
