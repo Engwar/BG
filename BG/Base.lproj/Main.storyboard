@@ -32,7 +32,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yi-5K-26q">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yi-5K-26q">
                                         <rect key="frame" x="0.0" y="64" width="359" height="375"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5bi-Fk-BaB">
@@ -357,6 +357,9 @@
                                         </constraints>
                                     </scrollView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="2yi-5K-26q" firstAttribute="leading" secondItem="aUB-Ye-PX3" secondAttribute="leading" id="BWG-1N-cvc"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.91488677259999995" green="0.90168315170000002" blue="0.51315480469999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
