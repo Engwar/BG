@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9412C3732301FB8800F7964A /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9412C3722301FB8800F7964A /* PlayersTableViewController.swift */; };
 		942FDAC6219A068300E779B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942FDAC5219A068300E779B7 /* AppDelegate.swift */; };
 		942FDACB219A068300E779B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942FDAC9219A068300E779B7 /* Main.storyboard */; };
 		942FDACD219A068400E779B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 942FDACC219A068400E779B7 /* Assets.xcassets */; };
 		942FDAD0219A068400E779B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942FDACE219A068400E779B7 /* LaunchScreen.storyboard */; };
-		943C980021F0999500D1372B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943C97FF21F0999500D1372B /* ViewController.swift */; };
+		943C980021F0999500D1372B /* GameFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943C97FF21F0999500D1372B /* GameFieldViewController.swift */; };
+		94C924092279ADAA007AAB6B /* Gamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C924082279ADAA007AAB6B /* Gamer.swift */; };
+		94C9240B2279E1EA007AAB6B /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C9240A2279E1EA007AAB6B /* NewGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9412C3722301FB8800F7964A /* PlayersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
 		942FDAC2219A068300E779B7 /* BG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BG.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		942FDAC5219A068300E779B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		942FDAC5219A068300E779B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		942FDACA219A068300E779B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		942FDACC219A068400E779B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		942FDACF219A068400E779B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		942FDAD1219A068400E779B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		943C97FF21F0999500D1372B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		943C97FF21F0999500D1372B /* GameFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFieldViewController.swift; sourceTree = "<group>"; };
+		94C924082279ADAA007AAB6B /* Gamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gamer.swift; sourceTree = "<group>"; };
+		94C9240A2279E1EA007AAB6B /* NewGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +61,40 @@
 			isa = PBXGroup;
 			children = (
 				942FDAC9219A068300E779B7 /* Main.storyboard */,
-				943C97FF21F0999500D1372B /* ViewController.swift */,
-				942FDAC5219A068300E779B7 /* AppDelegate.swift */,
+				94882D6D224FBDAD00717352 /* Model */,
+				94C9240F228027B5007AAB6B /* Controllers */,
+				94C9240E227A146B007AAB6B /* Support files */,
 				942FDACC219A068400E779B7 /* Assets.xcassets */,
-				942FDACE219A068400E779B7 /* LaunchScreen.storyboard */,
 				942FDAD1219A068400E779B7 /* Info.plist */,
 			);
 			path = BG;
+			sourceTree = "<group>";
+		};
+		94882D6D224FBDAD00717352 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				94C924082279ADAA007AAB6B /* Gamer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		94C9240E227A146B007AAB6B /* Support files */ = {
+			isa = PBXGroup;
+			children = (
+				942FDAC5219A068300E779B7 /* AppDelegate.swift */,
+				942FDACE219A068400E779B7 /* LaunchScreen.storyboard */,
+			);
+			path = "Support files";
+			sourceTree = "<group>";
+		};
+		94C9240F228027B5007AAB6B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9412C3722301FB8800F7964A /* PlayersTableViewController.swift */,
+				943C97FF21F0999500D1372B /* GameFieldViewController.swift */,
+				94C9240A2279E1EA007AAB6B /* NewGameViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +129,7 @@
 				TargetAttributes = {
 					942FDAC1219A068300E779B7 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -135,8 +169,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				943C980021F0999500D1372B /* ViewController.swift in Sources */,
+				94C924092279ADAA007AAB6B /* Gamer.swift in Sources */,
+				94C9240B2279E1EA007AAB6B /* NewGameViewController.swift in Sources */,
+				943C980021F0999500D1372B /* GameFieldViewController.swift in Sources */,
 				942FDAC6219A068300E779B7 /* AppDelegate.swift in Sources */,
+				9412C3732301FB8800F7964A /* PlayersTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +328,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.enigvor.BG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -309,7 +346,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.enigvor.BG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
