@@ -32,7 +32,7 @@ class NewGameViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func amountGamerStepper(_ sender: UIStepper) {
         updateAmountPlayers()
-        //performSegue(withIdentifier: "playerSegue", sender: self) проблема с сегвеем
+        performSegue(withIdentifier: "playerSegue", sender: self) //проблема с сегвеем
     }
     
     @IBAction func startGameButton(_ sender: UIButton) {
