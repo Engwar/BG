@@ -14,6 +14,7 @@ class PlayersTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        numOfPlayers = 1
     }
 
     // MARK: - Table view data source

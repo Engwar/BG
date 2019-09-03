@@ -374,7 +374,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="vy9-xz-mRO">
-                                            <rect key="frame" x="16" y="7" width="311" height="30"/>
+                                            <rect key="frame" x="16" y="7" width="350" height="30"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -402,7 +402,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jaa-1k-BFR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="721" y="2376"/>
+            <point key="canvasLocation" x="826" y="2296"/>
         </scene>
         <!--Pop Up View Controller-->
         <scene sceneID="gYz-GY-ZPg">
@@ -463,7 +463,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4s-Mz-9k5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1424.8" y="2295.2023988005999"/>
+            <point key="canvasLocation" x="-882" y="2296"/>
         </scene>
         <!--GameGield-->
         <scene sceneID="lnh-ii-LPV">
@@ -476,7 +476,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="aUB-Ye-PX3">
                                 <rect key="frame" x="8" y="72" width="359" height="395"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3Z-8Z-ylw">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3Z-8Z-ylw">
                                         <rect key="frame" x="54.5" y="0.0" width="250" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -727,10 +727,9 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textView>
-                                                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="akL-mn-JQB">
+                                                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akL-mn-JQB">
                                                                 <rect key="frame" x="204" y="0.0" width="60" height="60"/>
                                                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBound" value="YES"/>
@@ -816,11 +815,49 @@
                                     <constraint firstItem="2yi-5K-26q" firstAttribute="leading" secondItem="aUB-Ye-PX3" secondAttribute="leading" id="BWG-1N-cvc"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="89" translatesAutoresizingMaskIntoConstraints="NO" id="6co-1n-4Yf">
+                                <rect key="frame" x="119" y="545" width="149" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I45-JA-eFz">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="V">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="doneButton:" destination="rhY-9w-ro3" eventType="touchUpInside" id="4Uf-C9-KDg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MW8-DB-vWv">
+                                        <rect key="frame" x="119" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="X">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="cancelButton:" destination="rhY-9w-ro3" eventType="touchUpInside" id="BtG-eo-bqV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.10962430387735367" green="0.085390962660312653" blue="0.23515748977661133" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rHd-Wt-Buw" firstAttribute="bottom" secondItem="aUB-Ye-PX3" secondAttribute="bottom" constant="200" id="6jW-BJ-6iB"/>
                             <constraint firstItem="aUB-Ye-PX3" firstAttribute="top" secondItem="rHd-Wt-Buw" secondAttribute="top" constant="8" id="FCV-6f-Mae"/>
+                            <constraint firstItem="rHd-Wt-Buw" firstAttribute="top" secondItem="aUB-Ye-PX3" secondAttribute="bottom" constant="-403" id="Fm6-TZ-70l"/>
+                            <constraint firstItem="6co-1n-4Yf" firstAttribute="top" secondItem="aUB-Ye-PX3" secondAttribute="bottom" constant="78" id="cbW-10-a7A"/>
+                            <constraint firstItem="6co-1n-4Yf" firstAttribute="leading" secondItem="rHd-Wt-Buw" secondAttribute="leading" constant="119" id="fqe-gh-I0o"/>
                             <constraint firstItem="aUB-Ye-PX3" firstAttribute="leading" secondItem="rHd-Wt-Buw" secondAttribute="leading" constant="8" id="ges-c9-KxT"/>
                             <constraint firstItem="rHd-Wt-Buw" firstAttribute="trailing" secondItem="aUB-Ye-PX3" secondAttribute="trailing" constant="8" id="pAq-Pl-nBY"/>
                         </constraints>

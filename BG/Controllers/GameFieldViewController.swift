@@ -12,6 +12,7 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
     
     var players = [Gamer]()
     var theme = String()
+    var decks = FiledsDeck()
     
     @IBOutlet weak var scrollViewTable: UIScrollView!
     @IBOutlet weak var gameStackFields: UIStackView!
@@ -21,48 +22,90 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
     override func viewDidLoad() {
         super.viewDidLoad()
         textAnswer.forEach{ $0.delegate = self } //делаем GameFieldViewController делегатом для каждого вью
-        updateTextField()
-        registerForKeyboardNotifications()
-        }
-    
-    private func updateTextField(){
+        textAnswer.forEach{ $0.isSelectable = false }
         textAnswer[1].text = theme
-        if textAnswer[1].text!.isEmpty {         //если нет темы то ----
-            for index in textAnswer.indices {
-                let field = textAnswer[index]
-                field.backgroundColor = .gray //поле затеняется серым
-                field.isSelectable = false    // и его невозможно выбрать для редактирования
-                }
-            } else {
-            for index in textAnswer.indices { // и для ближайших полей становится доступен выбор для редактирования и цвет
-                if index == 0 || index == 1 || index == 2 || index == 4 || index == 5 {
-                    textAnswer[index].backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
-                } else {
-                    textAnswer[index].isSelectable = false
-                }
-              }
-            }
-        //для каждого поля устанавливается ограничение в 18 символов
-//        textAnswer.forEach() { index in
-//            if index.text.count >= 18 {
-//                textViewShouldEndEditing(index)
-//            }
-//        }
+        registerForKeyboardNotifications()
+        updateTextField()
+        }
+    
+    @IBAction func doneButton(_ sender: UIButton) {
+        updateTextField()
     }
     
-    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        textView.endEditing(true)
-        return true
-    }
-    
-    private func fieldSelected(){
+    @IBAction func cancelButton(_ sender: UIButton) {
         for index in textAnswer.indices {
-            let field = textAnswer[index]
-            if field.backgroundColor == #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1), !field.text.isEmpty {
+            if textAnswer[index].backgroundColor != #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1) {
+                textAnswer[index].text = String()
             }
         }
     }
     
+    private func updateTextField() {
+        inspectText()
+        var mass = decks.massField
+        for index in textAnswer.indices {
+            if !textAnswer[index].text.isEmpty {
+                textAnswer[index].backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+                textAnswer[index].isEditable = false
+                textAnswer[index].isSelectable = false
+                let invNum = index
+                for i in mass.indices {
+                    guard textAnswer[i].backgroundColor != #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1) else { continue }
+                    if mass[invNum].first! == mass[i].first! {
+                        if mass[invNum].last! - mass[i].last! == 1 ||
+                            mass[invNum].last! - mass[i].last! == -1 {
+                            textAnswer[i].backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+                            textAnswer[i].isEditable = true
+                        }
+                    }
+                    if mass[invNum].first! < 2 {
+                    if mass[invNum].first! - mass[i].first! == 1 ||
+                        mass[invNum].first! - mass[i].first! == -1 {
+                        if mass[invNum].last! - mass[i].last! == 0 ||
+                            mass[invNum].last! - mass[i].last! == -1 {
+                            textAnswer[i].backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+                            textAnswer[i].isEditable = true
+                            }
+                        }
+                    } else if mass[invNum].first! == 2 {
+                        if mass[invNum].first! - mass[i].first! == 1 || mass[invNum].first! - mass[i].first! == -1 {
+                            if mass[invNum].last! - mass[i].last! == 0 || mass[invNum].last! - mass[i].last! == 1 {
+                                textAnswer[i].backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+                                textAnswer[i].isEditable = true
+                            }
+                        }
+                    } else if mass[invNum].first! > 2 {
+                        if mass[invNum].first! - mass[i].first! == 1 {
+                            if mass[invNum].last! - mass[i].last! == 0 || mass[invNum].last! - mass[i].last! == -1 {
+                                textAnswer[i].backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+                                textAnswer[i].isEditable = true
+                            }
+                        } else if mass[invNum].first! - mass[i].first! == -1 {
+                            if mass[invNum].last! - mass[i].last! == 0 || mass[invNum].last! - mass[i].last! == 1 {
+                                textAnswer[i].backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+                                textAnswer[i].isEditable = true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private func inspectText() {
+        var count = 0
+        for i in textAnswer.indices {
+            guard textAnswer[i].backgroundColor == #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1) && !textAnswer[i].text.isEmpty else {continue}
+            count += 1
+        }
+        if count >= 2 {
+            for i in textAnswer.indices {
+                guard textAnswer[i].backgroundColor == #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1) else {continue}
+                textAnswer[i].text = String()
+            }
+        }
+    }
+
     //делаем этот метод чтобы клавиатура не закрывала поля, регистрируемся в центре сообщений, добавляя наблюдатель
     func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(
@@ -102,6 +145,11 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
         view.endEditing(true)
     }
     
+    //уменьшаем количество символов в текствью до 18
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        return newText.count < 15
+    }
 }
 
 

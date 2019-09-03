@@ -11,6 +11,7 @@ import UIKit
 class NewGameViewController: UIViewController, UITextFieldDelegate {
 
     var  theme = String()
+    var num = Int()
     
     @IBOutlet weak var themeText: UITextField!
     @IBOutlet weak var amountGamers: UILabel!
@@ -26,13 +27,11 @@ class NewGameViewController: UIViewController, UITextFieldDelegate {
         amountStepGamers.maximumValue = maxValue
         updateAmountPlayers()
         tryStartGame()
-        
     }
-    
-    
+
     @IBAction func amountGamerStepper(_ sender: UIStepper) {
         updateAmountPlayers()
-        performSegue(withIdentifier: "playerSegue", sender: self) //проблема с сегвеем
+        //performSegue(withIdentifier: "playerSegue", sender: self) //проблема с сегвеем
     }
     
     @IBAction func startGameButton(_ sender: UIButton) {
@@ -47,7 +46,7 @@ class NewGameViewController: UIViewController, UITextFieldDelegate {
             vc.theme = self.theme
         } else if segue.identifier == "playerSegue" {
             let vc = segue.destination as! PlayersTableViewController
-            vc.numOfPlayers = Int(amountGamers.text!)!
+            vc.numOfPlayers = num
         }
     }
     
@@ -64,11 +63,13 @@ class NewGameViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
         tryStartGame()
         //делаем всплывающее окно с подсказкой
+        if themeText.text!.isEmpty {
         let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVCid") as! PopUpViewController
         self.addChild(popUpVC)
         popUpVC.view.frame = self.view.frame
         self.view.addSubview(popUpVC.view)
         popUpVC.didMove(toParent: self)
+        }
     }
 // делаем кнопку "Играть" активной если количество игроков удовлетворительное (1-3)
 //        if Int(amountStepGamers.value) > 0 && Int(amountStepGamers.value) < 4 {
@@ -80,7 +81,8 @@ class NewGameViewController: UIViewController, UITextFieldDelegate {
 //        }
 
     private func updateAmountPlayers() {
-        amountGamers.text = String(Int(amountStepGamers.value))
+        num = Int(amountStepGamers.value)
+        amountGamers.text = String(num)
     }
     
     private func tryStartGame() {
