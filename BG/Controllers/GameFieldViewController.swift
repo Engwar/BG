@@ -13,11 +13,13 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
     var players = [Gamer]()
     var theme = String()
     var decks = FiledsDeck()
+    var score = Int()
     
     @IBOutlet weak var scrollViewTable: UIScrollView!
     @IBOutlet weak var gameStackFields: UIStackView!
     @IBOutlet weak var carrentPlayer: UILabel!
     @IBOutlet var textAnswer: [UITextView]!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,7 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
     
     @IBAction func doneButton(_ sender: UIButton) {
         updateTextField()
+        scoreLabel.text = "\(score)"
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
@@ -91,14 +94,14 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
             }
         }
     }
-    
+    //функция проверяет чтобы только одно доступное поле было заполнено текстом
     private func inspectText() {
         var count = 0
         for i in textAnswer.indices {
             guard textAnswer[i].backgroundColor == #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1) && !textAnswer[i].text.isEmpty else {continue}
             count += 1
         }
-        if count >= 2 {
+        if count > 1 {
             for i in textAnswer.indices {
                 guard textAnswer[i].backgroundColor == #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1) else {continue}
                 textAnswer[i].text = String()
