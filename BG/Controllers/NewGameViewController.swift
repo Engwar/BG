@@ -157,7 +157,7 @@ extension NewGameViewController {
                              Gamer(name: "\(thirdPlayer.text!)", score: 0, color: #colorLiteral(red: 0.9126871228, green: 0.5719250441, blue: 0.4921262264, alpha: 1)),
                              Gamer(name: "\(fourthPlayer.text!)", score: 0, color: #colorLiteral(red: 0.5203970075, green: 0.4821320772, blue: 0.9096730351, alpha: 1))]
             
-        default: numGamers = [Gamer(name: "\(firstPlayer.text!)", score: 0, color: #colorLiteral(red: 0.8865879774, green: 0.911493957, blue: 0.4669608474, alpha: 1))]
+        default: numGamers = [Gamer(name: "\(firstPlayer.text!)", score: 0, color: #colorLiteral(red: 0.8980392157, green: 0.8980392157, blue: 0.8980392157, alpha: 1))]
         }
         numGamers = numGamers.shuffled()
     }
