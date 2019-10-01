@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct FiledsDeck {
+struct FieldsDeck {
     private(set) var matrix = [0:3, 1:4, 2:5, 3:4, 4:3]
     
     var massField:[[Int]] {

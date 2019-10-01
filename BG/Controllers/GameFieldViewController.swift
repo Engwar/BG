@@ -9,15 +9,14 @@
 import UIKit
 
 class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate {
-    
-    var players = [Gamer]()
+
     var theme = String()
-    var decks = FiledsDeck()
-    var score = Int()
+    var decks = FieldsDeck()
+    var players = [NewGameViewController.Gamer]()
     
     @IBOutlet weak var scrollViewTable: UIScrollView!
     @IBOutlet weak var gameStackFields: UIStackView!
-    @IBOutlet weak var carrentPlayer: UILabel!
+    @IBOutlet weak var currentPlayer: UILabel!
     @IBOutlet var textAnswer: [UITextView]!
     @IBOutlet weak var scoreLabel: UILabel!
     
@@ -28,11 +27,13 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
         textAnswer[1].text = theme
         registerForKeyboardNotifications()
         updateTextField()
+        currentPlayer.text = players[0].name
+        currentPlayer.backgroundColor = players[0].color
         }
     
     @IBAction func doneButton(_ sender: UIButton) {
         updateTextField()
-        scoreLabel.text = "\(score)"
+        scoreLabel.text = "\(players[0].score)"
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
@@ -45,7 +46,7 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
     
     private func updateTextField() {
         inspectText()
-        var mass = decks.massField
+        let mass = decks.massField
         for index in textAnswer.indices {
             if !textAnswer[index].text.isEmpty {
                 textAnswer[index].backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
