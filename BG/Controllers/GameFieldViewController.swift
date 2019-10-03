@@ -11,12 +11,14 @@ import UIKit
 class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate {
 
     var theme = String()
+    var num = 0
     var decks = FieldsDeck()
     var players = [NewGameViewController.Gamer]()
+    var currentPlayer = NewGameViewController.Gamer()
     
     @IBOutlet weak var scrollViewTable: UIScrollView!
     @IBOutlet weak var gameStackFields: UIStackView!
-    @IBOutlet weak var currentPlayer: UILabel!
+    @IBOutlet weak var curPlayer: UILabel!
     @IBOutlet var textAnswer: [UITextView]!
     @IBOutlet weak var scoreLabel: UILabel!
     
@@ -27,13 +29,14 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
         textAnswer[1].text = theme
         registerForKeyboardNotifications()
         updateTextField()
-        currentPlayer.text = players[0].name
-        currentPlayer.backgroundColor = players[0].color
+        currentPlayer = players[num]
+        curPlayer.text = currentPlayer.name
+        curPlayer.backgroundColor = currentPlayer.color
         }
     
     @IBAction func doneButton(_ sender: UIButton) {
         updateTextField()
-        scoreLabel.text = "\(players[0].score)"
+        updateView()
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
@@ -108,6 +111,8 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
                 textAnswer[i].text = String()
             }
         }
+        guard count == 1 else {return}
+            nextPlayer()
     }
 
     //делаем этот метод чтобы клавиатура не закрывала поля, регистрируемся в центре сообщений, добавляя наблюдатель
@@ -153,6 +158,22 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         return newText.count < 15
+    }
+    
+    func nextPlayer() {
+        num += 1
+        if num > players.count - 1 {
+            num = 0
+            currentPlayer = players[num]
+        } else {
+            currentPlayer = players[num]
+        }
+    }
+    
+    func updateView() {
+        curPlayer.text = currentPlayer.name
+        curPlayer.backgroundColor = currentPlayer.color
+        scoreLabel.text = "\(currentPlayer.score)"
     }
 }
 

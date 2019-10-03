@@ -109,7 +109,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUH-Hv-vYk">
-                                        <rect key="frame" x="0.0" y="112.5" width="343" height="389"/>
+                                        <rect key="frame" x="0.0" y="112.5" width="343" height="327.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="390" id="Kd6-yd-U3y"/>
                                         </constraints>
@@ -118,7 +118,7 @@
                                         </connections>
                                     </containerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dM-nR-8zZ">
-                                        <rect key="frame" x="119.5" y="529.5" width="104" height="41.5"/>
+                                        <rect key="frame" x="119.5" y="468" width="104" height="103"/>
                                         <color key="backgroundColor" red="0.10967374593019485" green="0.080969132483005524" blue="0.23920685052871704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="tAf-ci-Chf"/>
@@ -158,15 +158,15 @@
             <objects>
                 <tableViewController id="jez-sA-Skf" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aua-WJ-x9A">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="389"/>
+                        <rect key="frame" x="0.0" y="0.0" width="560" height="327.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" id="VoW-l6-Nhg">
-                                <rect key="frame" x="0.0" y="28" width="343" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="560" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VoW-l6-Nhg" id="AjN-LL-gaO">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -873,7 +873,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Игра" id="k3V-bK-GFZ"/>
                     <connections>
-                        <outlet property="currentPlayer" destination="J3Z-8Z-ylw" id="MQg-pc-BTJ"/>
+                        <outlet property="curPlayer" destination="J3Z-8Z-ylw" id="MQg-pc-BTJ"/>
                         <outlet property="gameStackFields" destination="5bi-Fk-BaB" id="B3O-Ia-ry4"/>
                         <outlet property="scoreLabel" destination="Z9n-14-hIr" id="bZZ-Jv-szy"/>
                         <outlet property="scrollViewTable" destination="2yi-5K-26q" id="4R6-Pz-cDo"/>
