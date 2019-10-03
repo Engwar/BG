@@ -12,6 +12,7 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
 
     var theme = String()
     var num = 0
+    var turn = 0
     var decks = FieldsDeck()
     var players = [NewGameViewController.Gamer]()
     var currentPlayer = NewGameViewController.Gamer()
@@ -28,68 +29,82 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
         textAnswer.forEach{ $0.isSelectable = false }
         textAnswer[1].text = theme
         registerForKeyboardNotifications()
-        updateTextField()
         currentPlayer = players[num]
+        updateTextField()
+        textAnswer[1].backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         curPlayer.text = currentPlayer.name
         curPlayer.backgroundColor = currentPlayer.color
         }
     
     @IBAction func doneButton(_ sender: UIButton) {
+        inspectText()
         updateTextField()
+        nextPlayer()
         updateView()
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
         for index in textAnswer.indices {
-            if textAnswer[index].backgroundColor != #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1) {
+            if textAnswer[index].backgroundColor != #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1) &&
+                textAnswer[index].backgroundColor != #colorLiteral(red: 0.8865879774, green: 0.911493957, blue: 0.4669608474, alpha: 1) &&
+                textAnswer[index].backgroundColor != #colorLiteral(red: 0.4580307007, green: 0.9049122334, blue: 0.4451536536, alpha: 1) &&
+                textAnswer[index].backgroundColor != #colorLiteral(red: 0.9126871228, green: 0.5719250441, blue: 0.4921262264, alpha: 1) &&
+                textAnswer[index].backgroundColor != #colorLiteral(red: 0.5203970075, green: 0.4821320772, blue: 0.9096730351, alpha: 1) {
                 textAnswer[index].text = String()
             }
         }
     }
     
     private func updateTextField() {
-        inspectText()
         let mass = decks.massField
         for index in textAnswer.indices {
-            if !textAnswer[index].text.isEmpty {
-                textAnswer[index].backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            if !textAnswer[index].text.isEmpty &&
+                textAnswer[index].backgroundColor != #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1) &&
+                textAnswer[index].backgroundColor != #colorLiteral(red: 0.8865879774, green: 0.911493957, blue: 0.4669608474, alpha: 1) &&
+                textAnswer[index].backgroundColor != #colorLiteral(red: 0.4580307007, green: 0.9049122334, blue: 0.4451536536, alpha: 1) &&
+                textAnswer[index].backgroundColor != #colorLiteral(red: 0.9126871228, green: 0.5719250441, blue: 0.4921262264, alpha: 1) &&
+                textAnswer[index].backgroundColor != #colorLiteral(red: 0.5203970075, green: 0.4821320772, blue: 0.9096730351, alpha: 1) {
+                textAnswer[index].backgroundColor = currentPlayer.color
                 textAnswer[index].isEditable = false
                 textAnswer[index].isSelectable = false
-                let invNum = index
                 for i in mass.indices {
-                    guard textAnswer[i].backgroundColor != #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1) else { continue }
-                    if mass[invNum].first! == mass[i].first! {
-                        if mass[invNum].last! - mass[i].last! == 1 ||
-                            mass[invNum].last! - mass[i].last! == -1 {
-                            textAnswer[i].backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+                    guard textAnswer[i].backgroundColor != #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1) &&
+                          textAnswer[i].backgroundColor != #colorLiteral(red: 0.8865879774, green: 0.911493957, blue: 0.4669608474, alpha: 1) &&
+                          textAnswer[i].backgroundColor != #colorLiteral(red: 0.4580307007, green: 0.9049122334, blue: 0.4451536536, alpha: 1) &&
+                          textAnswer[i].backgroundColor != #colorLiteral(red: 0.9126871228, green: 0.5719250441, blue: 0.4921262264, alpha: 1) &&
+                          textAnswer[i].backgroundColor != #colorLiteral(red: 0.5203970075, green: 0.4821320772, blue: 0.9096730351, alpha: 1) else { continue }
+                    if mass[index].first! == mass[i].first! {
+                        if mass[index].last! - mass[i].last! == 1 ||
+                            mass[index].last! - mass[i].last! == -1 {
+                            textAnswer[i].backgroundColor = .white
                             textAnswer[i].isEditable = true
                         }
                     }
-                    if mass[invNum].first! < 2 {
-                    if mass[invNum].first! - mass[i].first! == 1 ||
-                        mass[invNum].first! - mass[i].first! == -1 {
-                        if mass[invNum].last! - mass[i].last! == 0 ||
-                            mass[invNum].last! - mass[i].last! == -1 {
-                            textAnswer[i].backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+                    if mass[index].first! < 2 {
+                    if mass[index].first! - mass[i].first! == 1 ||
+                        mass[index].first! - mass[i].first! == -1 {
+                        if mass[index].last! - mass[i].last! == 0 ||
+                            mass[index].last! - mass[i].last! == -1 {
+                            textAnswer[i].backgroundColor = .white
                             textAnswer[i].isEditable = true
                             }
                         }
-                    } else if mass[invNum].first! == 2 {
-                        if mass[invNum].first! - mass[i].first! == 1 || mass[invNum].first! - mass[i].first! == -1 {
-                            if mass[invNum].last! - mass[i].last! == 0 || mass[invNum].last! - mass[i].last! == 1 {
-                                textAnswer[i].backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+                    } else if mass[index].first! == 2 {
+                        if mass[index].first! - mass[i].first! == 1 || mass[index].first! - mass[i].first! == -1 {
+                            if mass[index].last! - mass[i].last! == 0 || mass[index].last! - mass[i].last! == 1 {
+                                textAnswer[i].backgroundColor = .white
                                 textAnswer[i].isEditable = true
                             }
                         }
-                    } else if mass[invNum].first! > 2 {
-                        if mass[invNum].first! - mass[i].first! == 1 {
-                            if mass[invNum].last! - mass[i].last! == 0 || mass[invNum].last! - mass[i].last! == -1 {
-                                textAnswer[i].backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+                    } else if mass[index].first! > 2 {
+                        if mass[index].first! - mass[i].first! == 1 {
+                            if mass[index].last! - mass[i].last! == 0 || mass[index].last! - mass[i].last! == -1 {
+                                textAnswer[i].backgroundColor = .white
                                 textAnswer[i].isEditable = true
                             }
-                        } else if mass[invNum].first! - mass[i].first! == -1 {
-                            if mass[invNum].last! - mass[i].last! == 0 || mass[invNum].last! - mass[i].last! == 1 {
-                                textAnswer[i].backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+                        } else if mass[index].first! - mass[i].first! == -1 {
+                            if mass[index].last! - mass[i].last! == 0 || mass[index].last! - mass[i].last! == 1 {
+                                textAnswer[i].backgroundColor = .white
                                 textAnswer[i].isEditable = true
                             }
                         }
@@ -98,22 +113,7 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
             }
         }
     }
-    //функция проверяет чтобы только одно доступное поле было заполнено текстом
-    private func inspectText() {
-        var count = 0
-        for i in textAnswer.indices {
-            guard textAnswer[i].backgroundColor == #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1) && !textAnswer[i].text.isEmpty else {continue}
-            count += 1
-        }
-        if count > 1 {
-            for i in textAnswer.indices {
-                guard textAnswer[i].backgroundColor == #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1) else {continue}
-                textAnswer[i].text = String()
-            }
-        }
-        guard count == 1 else {return}
-            nextPlayer()
-    }
+    
 
     //делаем этот метод чтобы клавиатура не закрывала поля, регистрируемся в центре сообщений, добавляя наблюдатель
     func registerForKeyboardNotifications() {
@@ -154,12 +154,32 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
         view.endEditing(true)
     }
     
-    //уменьшаем количество символов в текствью до 18.
+    //уменьшаем количество символов в текствью до 18
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         return newText.count < 15
     }
     
+    //функция проверяет чтобы только одно доступное поле было заполнено текстом
+    private func inspectText() {
+        var count = 0
+        for i in textAnswer.indices {
+            guard textAnswer[i].backgroundColor == UIColor.white && !textAnswer[i].text.isEmpty else {continue}
+            count += 1
+            turn += 1
+            textAnswer[i].text = "\(turn)\n" + textAnswer[i].text
+        }
+        if count > 1 {
+            for i in textAnswer.indices {
+                guard textAnswer[i].backgroundColor == UIColor.white else {continue}
+                textAnswer[i].text = String()
+                turn -= 1
+            }
+        }
+        guard count == 1 else {return}
+    }
+    
+    //переключаем очередность игроков
     func nextPlayer() {
         num += 1
         if num > players.count - 1 {
@@ -170,10 +190,10 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
         }
     }
     
+    //обновляем имя текущего игрока и вносим его цвет
     func updateView() {
         curPlayer.text = currentPlayer.name
         curPlayer.backgroundColor = currentPlayer.color
-        scoreLabel.text = "\(currentPlayer.score)"
     }
 }
 
