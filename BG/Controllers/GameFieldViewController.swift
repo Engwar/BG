@@ -38,8 +38,6 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
     
     @IBAction func doneButton(_ sender: UIButton) {
         inspectText()
-        updateTextField()
-        nextPlayer()
         updateView()
     }
     
@@ -171,12 +169,14 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
         }
         if count > 1 {
             for i in textAnswer.indices {
-                guard textAnswer[i].backgroundColor == UIColor.white else {continue}
+                guard textAnswer[i].backgroundColor == UIColor.white && !textAnswer[i].text.isEmpty else {continue}
                 textAnswer[i].text = String()
                 turn -= 1
             }
         }
         guard count == 1 else {return}
+        updateTextField()
+        nextPlayer()
     }
     
     //переключаем очередность игроков
