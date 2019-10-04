@@ -21,10 +21,15 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
     @IBOutlet weak var gameStackFields: UIStackView!
     @IBOutlet weak var curPlayer: UILabel!
     @IBOutlet var textAnswer: [UITextView]!
-    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet private var scoreLabels: [UILabel]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        curPlayer.layer.masksToBounds = true
+        curPlayer.layer.cornerRadius = 5
+        curPlayer.layer.borderWidth = 2
+        curPlayer.layer.borderColor = UIColor.cyan.cgColor
         textAnswer.forEach{ $0.delegate = self } //делаем GameFieldViewController делегатом для каждого вью
         textAnswer.forEach{ $0.isSelectable = false }
         textAnswer[1].text = theme
@@ -34,6 +39,7 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
         textAnswer[1].backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         curPlayer.text = currentPlayer.name
         curPlayer.backgroundColor = currentPlayer.color
+        updateScoreLabel()
         }
     
     @IBAction func doneButton(_ sender: UIButton) {
@@ -43,34 +49,23 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
     
     @IBAction func cancelButton(_ sender: UIButton) {
         for index in textAnswer.indices {
-            if textAnswer[index].backgroundColor != #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1) &&
-                textAnswer[index].backgroundColor != #colorLiteral(red: 0.8865879774, green: 0.911493957, blue: 0.4669608474, alpha: 1) &&
-                textAnswer[index].backgroundColor != #colorLiteral(red: 0.4580307007, green: 0.9049122334, blue: 0.4451536536, alpha: 1) &&
-                textAnswer[index].backgroundColor != #colorLiteral(red: 0.9126871228, green: 0.5719250441, blue: 0.4921262264, alpha: 1) &&
-                textAnswer[index].backgroundColor != #colorLiteral(red: 0.5203970075, green: 0.4821320772, blue: 0.9096730351, alpha: 1) {
+            if bColor(for: index) {
                 textAnswer[index].text = String()
             }
         }
     }
     
+    //отмечаем доступные поля для ответов
     private func updateTextField() {
         let mass = decks.massField
         for index in textAnswer.indices {
             if !textAnswer[index].text.isEmpty &&
-                textAnswer[index].backgroundColor != #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1) &&
-                textAnswer[index].backgroundColor != #colorLiteral(red: 0.8865879774, green: 0.911493957, blue: 0.4669608474, alpha: 1) &&
-                textAnswer[index].backgroundColor != #colorLiteral(red: 0.4580307007, green: 0.9049122334, blue: 0.4451536536, alpha: 1) &&
-                textAnswer[index].backgroundColor != #colorLiteral(red: 0.9126871228, green: 0.5719250441, blue: 0.4921262264, alpha: 1) &&
-                textAnswer[index].backgroundColor != #colorLiteral(red: 0.5203970075, green: 0.4821320772, blue: 0.9096730351, alpha: 1) {
+                bColor(for: index) {
                 textAnswer[index].backgroundColor = currentPlayer.color
                 textAnswer[index].isEditable = false
                 textAnswer[index].isSelectable = false
                 for i in mass.indices {
-                    guard textAnswer[i].backgroundColor != #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1) &&
-                          textAnswer[i].backgroundColor != #colorLiteral(red: 0.8865879774, green: 0.911493957, blue: 0.4669608474, alpha: 1) &&
-                          textAnswer[i].backgroundColor != #colorLiteral(red: 0.4580307007, green: 0.9049122334, blue: 0.4451536536, alpha: 1) &&
-                          textAnswer[i].backgroundColor != #colorLiteral(red: 0.9126871228, green: 0.5719250441, blue: 0.4921262264, alpha: 1) &&
-                          textAnswer[i].backgroundColor != #colorLiteral(red: 0.5203970075, green: 0.4821320772, blue: 0.9096730351, alpha: 1) else { continue }
+                    guard bColor(for: i) else { continue }
                     if mass[index].first! == mass[i].first! {
                         if mass[index].last! - mass[i].last! == 1 ||
                             mass[index].last! - mass[i].last! == -1 {
@@ -194,6 +189,28 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
     func updateView() {
         curPlayer.text = currentPlayer.name
         curPlayer.backgroundColor = currentPlayer.color
+    }
+    
+    //делаем представление поля очков игроков
+    func updateScoreLabel() {
+        scoreLabels.forEach({$0.isHidden = true; $0.layer.masksToBounds = true; $0.layer.cornerRadius = 15})
+        var x = players.count - 1
+        for label in scoreLabels {
+            if x >= 0 {
+                label.isHidden = false
+                label.backgroundColor = players[x].color
+                label.text = "\(players[x].score)"
+                x -= 1
+            }
+        }
+    }
+    
+    func bColor(for every: Int) -> Bool {
+        return textAnswer[every].backgroundColor != #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1) &&
+               textAnswer[every].backgroundColor != #colorLiteral(red: 0.8865879774, green: 0.911493957, blue: 0.4669608474, alpha: 1) &&
+               textAnswer[every].backgroundColor != #colorLiteral(red: 0.4580307007, green: 0.9049122334, blue: 0.4451536536, alpha: 1) &&
+               textAnswer[every].backgroundColor != #colorLiteral(red: 0.9126871228, green: 0.5719250441, blue: 0.4921262264, alpha: 1) &&
+               textAnswer[every].backgroundColor != #colorLiteral(red: 0.5203970075, green: 0.4821320772, blue: 0.9096730351, alpha: 1)
     }
 }
 

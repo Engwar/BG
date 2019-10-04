@@ -32,6 +32,8 @@ class NewGameViewController: UIViewController, UITextFieldDelegate {
         updateAmountPlayers()
         tryStartGame()
         addGamers()
+        amountStepGamers.layer.masksToBounds = true
+        amountStepGamers.layer.cornerRadius = 5
     }
 
     //делаем переход по кнопке Играть и назначаем тему в первое поле
