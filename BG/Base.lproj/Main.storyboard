@@ -316,6 +316,7 @@
                                                 <color key="backgroundColor" red="0.88616806268692017" green="0.90801483392715454" blue="0.46721035242080688" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="OBP-oB-753"/>
+                                                    <constraint firstAttribute="height" constant="34" id="rnP-k0-EOq"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="go"/>
@@ -325,6 +326,7 @@
                                                 <color key="backgroundColor" red="0.4589497447013855" green="0.90740382671356201" blue="0.44333815574645996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Oc6-VX-Lqc"/>
+                                                    <constraint firstAttribute="height" constant="34" id="pSy-Bh-KPe"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="go"/>
@@ -334,6 +336,7 @@
                                                 <color key="backgroundColor" red="0.91269415616989136" green="0.57143068313598633" blue="0.49162048101425171" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="E0w-Jh-p8u"/>
+                                                    <constraint firstAttribute="height" constant="34" id="YM2-kF-ZSH"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="go"/>
@@ -342,6 +345,7 @@
                                                 <rect key="frame" x="0.0" y="129" width="200" height="34"/>
                                                 <color key="backgroundColor" red="0.52342408895492554" green="0.48211902379989624" blue="0.90965616703033447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="1gy-wt-TUe"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="MVE-g0-4Gj"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -454,7 +458,7 @@
         <scene sceneID="lnh-ii-LPV">
             <objects>
                 <viewController title="GameGield" id="rhY-9w-ro3" customClass="GameFieldViewController" customModule="BG" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="U2P-1X-Arl">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="U2P-1X-Arl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -807,6 +811,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I45-JA-eFz">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="0eK-oz-nnw"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="0jh-SG-WF3"/>
+                                            <constraint firstAttribute="height" constant="30" id="chf-vQ-gpu"/>
+                                            <constraint firstAttribute="width" constant="30" id="kr4-vv-nDH"/>
+                                        </constraints>
                                         <state key="normal" title="V">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -822,6 +832,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MW8-DB-vWv">
                                         <rect key="frame" x="119" y="0.0" width="30" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="11A-lh-HGz"/>
+                                            <constraint firstAttribute="height" constant="30" id="J13-sN-gnX"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="Xwf-6k-AAH"/>
+                                            <constraint firstAttribute="height" constant="30" id="i0n-l5-BJG"/>
+                                        </constraints>
                                         <state key="normal" title="X">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -899,7 +915,7 @@
                             <constraint firstItem="6co-1n-4Yf" firstAttribute="centerX" secondItem="rHd-Wt-Buw" secondAttribute="centerX" id="jbN-5K-M1J"/>
                             <constraint firstItem="rHd-Wt-Buw" firstAttribute="trailing" secondItem="aUB-Ye-PX3" secondAttribute="trailing" constant="8" id="pAq-Pl-nBY"/>
                             <constraint firstItem="6co-1n-4Yf" firstAttribute="top" secondItem="aUB-Ye-PX3" secondAttribute="bottom" constant="50" id="ulV-UX-nDw"/>
-                            <constraint firstAttribute="bottom" secondItem="6co-1n-4Yf" secondAttribute="bottom" constant="108" id="yjX-J2-No6"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6co-1n-4Yf" secondAttribute="bottom" constant="108" id="yjX-J2-No6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rHd-Wt-Buw"/>
                     </view>

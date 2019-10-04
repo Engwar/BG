@@ -193,7 +193,8 @@ class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextVie
     
     //делаем представление поля очков игроков
     func updateScoreLabel() {
-        scoreLabels.forEach({$0.isHidden = true; $0.layer.masksToBounds = true; $0.layer.cornerRadius = 15})
+        
+        scoreLabels.forEach({$0.isHidden = true; $0.layer.masksToBounds = true; $0.layer.cornerRadius = 14})
         var x = players.count - 1
         for label in scoreLabels {
             if x >= 0 {
