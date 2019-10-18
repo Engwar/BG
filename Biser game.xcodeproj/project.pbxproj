@@ -8,25 +8,57 @@
 
 /* Begin PBXBuildFile section */
 		9412C377230DD60C00F7964A /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9412C376230DD60C00F7964A /* PopUpViewController.swift */; };
-		941AC2A2231D522B00EA684A /* FlieldsDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941AC2A1231D522B00EA684A /* FlieldsDeck.swift */; };
 		942FDAC6219A068300E779B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942FDAC5219A068300E779B7 /* AppDelegate.swift */; };
 		942FDACB219A068300E779B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942FDAC9219A068300E779B7 /* Main.storyboard */; };
 		942FDACD219A068400E779B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 942FDACC219A068400E779B7 /* Assets.xcassets */; };
 		942FDAD0219A068400E779B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942FDACE219A068400E779B7 /* LaunchScreen.storyboard */; };
 		943C980021F0999500D1372B /* GameFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943C97FF21F0999500D1372B /* GameFieldViewController.swift */; };
+		9447B6692359357000C0E7F1 /* Deck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9447B6662359356200C0E7F1 /* Deck.framework */; };
+		9447B66A2359357000C0E7F1 /* Deck.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9447B6662359356200C0E7F1 /* Deck.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94C9240B2279E1EA007AAB6B /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C9240A2279E1EA007AAB6B /* NewGameViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9447B6652359356200C0E7F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9447B6602359356200C0E7F1 /* Deck.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9447B6002359241900C0E7F1;
+			remoteInfo = Deck;
+		};
+		9447B6672359356200C0E7F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9447B6602359356200C0E7F1 /* Deck.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9447B6092359241900C0E7F1;
+			remoteInfo = DeckTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9447B65023592C3800C0E7F1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9447B66A2359357000C0E7F1 /* Deck.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		9412C376230DD60C00F7964A /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
-		941AC2A1231D522B00EA684A /* FlieldsDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlieldsDeck.swift; sourceTree = "<group>"; };
-		942FDAC2219A068300E779B7 /* BG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BG.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		942FDAC2219A068300E779B7 /* Biser game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Biser game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		942FDAC5219A068300E779B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		942FDACA219A068300E779B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		942FDACC219A068400E779B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		942FDACF219A068400E779B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		942FDAD1219A068400E779B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		943C97FF21F0999500D1372B /* GameFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFieldViewController.swift; sourceTree = "<group>"; };
+		9447B6602359356200C0E7F1 /* Deck.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Deck.xcodeproj; path = ../../Frameworks/Deck/Deck.xcodeproj; sourceTree = "<group>"; };
 		94C9240A2279E1EA007AAB6B /* NewGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -35,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9447B6692359357000C0E7F1 /* Deck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,15 +77,17 @@
 		942FDAB9219A068300E779B7 = {
 			isa = PBXGroup;
 			children = (
+				9447B6602359356200C0E7F1 /* Deck.xcodeproj */,
 				942FDAC4219A068300E779B7 /* BG */,
 				942FDAC3219A068300E779B7 /* Products */,
+				9447B64D23592C3800C0E7F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		942FDAC3219A068300E779B7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				942FDAC2219A068300E779B7 /* BG.app */,
+				942FDAC2219A068300E779B7 /* Biser game.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				942FDAC9219A068300E779B7 /* Main.storyboard */,
-				94882D6D224FBDAD00717352 /* Model */,
 				94C9240F228027B5007AAB6B /* Controllers */,
 				94C9240E227A146B007AAB6B /* Support files */,
 				942FDACC219A068400E779B7 /* Assets.xcassets */,
@@ -70,12 +104,20 @@
 			path = BG;
 			sourceTree = "<group>";
 		};
-		94882D6D224FBDAD00717352 /* Model */ = {
+		9447B64D23592C3800C0E7F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				941AC2A1231D522B00EA684A /* FlieldsDeck.swift */,
 			);
-			path = Model;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9447B6612359356200C0E7F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9447B6662359356200C0E7F1 /* Deck.framework */,
+				9447B6682359356200C0E7F1 /* DeckTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		94C9240E227A146B007AAB6B /* Support files */ = {
@@ -100,21 +142,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		942FDAC1219A068300E779B7 /* BG */ = {
+		942FDAC1219A068300E779B7 /* Biser game */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 942FDAD4219A068400E779B7 /* Build configuration list for PBXNativeTarget "BG" */;
+			buildConfigurationList = 942FDAD4219A068400E779B7 /* Build configuration list for PBXNativeTarget "Biser game" */;
 			buildPhases = (
 				942FDABE219A068300E779B7 /* Sources */,
 				942FDABF219A068300E779B7 /* Frameworks */,
 				942FDAC0219A068300E779B7 /* Resources */,
+				9447B65023592C3800C0E7F1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BG;
+			name = "Biser game";
 			productName = BG;
-			productReference = 942FDAC2219A068300E779B7 /* BG.app */;
+			productReference = 942FDAC2219A068300E779B7 /* Biser game.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -133,7 +176,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 942FDABD219A068300E779B7 /* Build configuration list for PBXProject "BG" */;
+			buildConfigurationList = 942FDABD219A068300E779B7 /* Build configuration list for PBXProject "Biser game" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -144,12 +187,35 @@
 			mainGroup = 942FDAB9219A068300E779B7;
 			productRefGroup = 942FDAC3219A068300E779B7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9447B6612359356200C0E7F1 /* Products */;
+					ProjectRef = 9447B6602359356200C0E7F1 /* Deck.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				942FDAC1219A068300E779B7 /* BG */,
+				942FDAC1219A068300E779B7 /* Biser game */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9447B6662359356200C0E7F1 /* Deck.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Deck.framework;
+			remoteRef = 9447B6652359356200C0E7F1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9447B6682359356200C0E7F1 /* DeckTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DeckTests.xctest;
+			remoteRef = 9447B6672359356200C0E7F1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		942FDAC0219A068300E779B7 /* Resources */ = {
@@ -170,7 +236,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9412C377230DD60C00F7964A /* PopUpViewController.swift in Sources */,
-				941AC2A2231D522B00EA684A /* FlieldsDeck.swift in Sources */,
 				94C9240B2279E1EA007AAB6B /* NewGameViewController.swift in Sources */,
 				943C980021F0999500D1372B /* GameFieldViewController.swift in Sources */,
 				942FDAC6219A068300E779B7 /* AppDelegate.swift in Sources */,
@@ -320,7 +385,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = BH8ZW8FZ54;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -338,7 +408,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = BH8ZW8FZ54;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -354,7 +429,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		942FDABD219A068300E779B7 /* Build configuration list for PBXProject "BG" */ = {
+		942FDABD219A068300E779B7 /* Build configuration list for PBXProject "Biser game" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				942FDAD2219A068400E779B7 /* Debug */,
@@ -363,7 +438,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		942FDAD4219A068400E779B7 /* Build configuration list for PBXNativeTarget "BG" */ = {
+		942FDAD4219A068400E779B7 /* Build configuration list for PBXNativeTarget "Biser game" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				942FDAD5219A068400E779B7 /* Debug */,

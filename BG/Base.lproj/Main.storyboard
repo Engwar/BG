@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ghd-FP-hlx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FbC-MN-s6v">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -255,7 +255,7 @@
         <!--Новая игра-->
         <scene sceneID="lvf-Tl-FdC">
             <objects>
-                <viewController title="Новая игра" id="ghd-FP-hlx" customClass="NewGameViewController" customModule="BG" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Новая игра" id="ghd-FP-hlx" customClass="NewGameViewController" customModule="Biser_game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IcJ-3c-4V6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -396,7 +396,7 @@
         <!--Pop Up View Controller-->
         <scene sceneID="gYz-GY-ZPg">
             <objects>
-                <viewController storyboardIdentifier="popUpVCid" id="uMu-P7-9n9" customClass="PopUpViewController" customModule="BG" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="popUpVCid" id="uMu-P7-9n9" customClass="PopUpViewController" customModule="Biser_game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cg0-us-gkP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -457,7 +457,7 @@
         <!--GameGield-->
         <scene sceneID="lnh-ii-LPV">
             <objects>
-                <viewController title="GameGield" id="rhY-9w-ro3" customClass="GameFieldViewController" customModule="BG" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="GameGield" id="rhY-9w-ro3" customClass="GameFieldViewController" customModule="Biser_game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" ambiguous="YES" id="U2P-1X-Arl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Deck
 
 class GameFieldViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate {
 

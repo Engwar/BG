@@ -1,0 +1,11 @@
+framework module Deck {
+  umbrella header "Deck.h"
+
+  export *
+  module * { export * }
+}
+
+module Deck.Swift {
+    header "Deck-Swift.h"
+    requires objc
+}
